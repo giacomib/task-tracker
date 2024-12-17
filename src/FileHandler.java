@@ -3,25 +3,30 @@ import java.io.FileWriter;
 import java.util.Scanner;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.util.ArrayList;
 
 public class FileHandler {
 
     private File myFile;
+    private ArrayList<Task> taskList;
 
     public FileHandler(String filePath) {
         myFile = new File(filePath);
-        createFile();
-        setupFile();
+        taskList = new ArrayList<Task>();
+        // createFile();
+        // setupFile();
+        importFileData();
     }
     
     private void createFile() {
-        if(!myFile.exists())
+        if(!myFile.exists()) {
             try {
                 myFile.createNewFile();
             } catch (Exception e) {
                 System.out.println("error while creating the file");
                 e.printStackTrace();
-            }  
+            }
+        }
     }
 
     private void setupFile() {
@@ -35,12 +40,51 @@ public class FileHandler {
         }
     }
 
-    public boolean addTask(String newTask) {
+    private void importFileData() {
+        boolean preambleFinished = false;
+        try {
+            Scanner scanner = new Scanner(myFile);
+            while(!preambleFinished) {
+                String currentLine = scanner.nextLine();
+                if(currentLine.contains("tasks")) {
+                    System.out.println("testing nextLine data:");
+                    System.out.println(currentLine);
+                    preambleFinished = true;
+                }
+            }
+
+            while(scanner.hasNextLine()) {
+                String currentLine = scanner.nextLine();
+                if(currentLine.compareTo("    ]") == 0) {
+                    System.out.println("finished");
+                    break;
+                }
+                else{
+                    System.out.println("test da importare");
+                    System.out.println(currentLine);
+                    // meccanismo per importare dati
+                    int id;
+                    String description;
+                    // add other attributes
+                }
+            }
+
+
+
+            scanner.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return;
+        }
+    }
+
+    public boolean addTask(String description) {
+        Task newTask = new Task(newID(), description);
         try {
             FileWriter fileWriter = new FileWriter(myFile);
             fileWriter.write('{' +
                             "\"ID\"" + ':' + '"' + newID() + '"' + ", " +
-                            "\"description\"" + ':' + '"' + newTask + '"' + ", " +
+                            "\"description\"" + ':' + '"' + description + '"' + ", " +
                             "\"status\"" + ':' + "\"to-do\"" + ", " +
                             "\"createdAt\"" + ':' + '"' + LocalDateTime.now(ZoneId.of("Europe/Rome")) + '"' + ", " +
                             "\"updatedAt\"" + ':' + '"' + LocalDateTime.now(ZoneId.of("Europe/Rome")) + '"'
@@ -55,20 +99,15 @@ public class FileHandler {
         }
     }
 
-    private void read() {
-        try {
-            Scanner scanner = new Scanner(myFile);
-            scanner.close();
-        } catch (Exception e) {
-            // TODO: handle exception
-        }
+    public void list() {
+
     }
 
     public int newID() {
         try {
             //int currentID;
             Scanner scanner = new Scanner(myFile);
-            System.out.println("testing nextLine: " + scanner.hasNextLine());
+            // System.out.println("testing nextLine: " + scanner.hasNextLine());
             while (scanner.hasNextLine()) {
                 String data = scanner.nextLine();
                 //System.out.println("testing nextLine");

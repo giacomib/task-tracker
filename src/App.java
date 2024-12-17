@@ -4,7 +4,6 @@ public class App {
     public static void main(String[] args) throws Exception {
         Scanner tastiera = new Scanner(System.in);
         FileHandler fileHandler = new FileHandler("taskList.json");
-        fileHandler.newID();
 
         switch(args[0]) {
             case "add":
@@ -19,6 +18,7 @@ public class App {
             case "mark-done":
                 break;
             case "list":
+                fileHandler.list();
                 break;
             case "list-done":
                 break;
