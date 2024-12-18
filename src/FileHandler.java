@@ -47,30 +47,32 @@ public class FileHandler {
             while(!preambleFinished) {
                 String currentLine = scanner.nextLine();
                 if(currentLine.contains("tasks")) {
-                    System.out.println("testing nextLine data:");
-                    System.out.println(currentLine);
                     preambleFinished = true;
                 }
             }
-
             while(scanner.hasNextLine()) {
                 String currentLine = scanner.nextLine();
                 if(currentLine.compareTo("    ]") == 0) {
-                    System.out.println("finished");
                     break;
                 }
                 else{
-                    System.out.println("test da importare");
-                    System.out.println(currentLine);
-                    // meccanismo per importare dati
-                    int id;
-                    String description;
-                    // add other attributes
+                    int id = Integer.parseInt(currentLine.substring(currentLine.indexOf(':') + 1, currentLine.indexOf(',')));
+
+                    currentLine = currentLine.substring(currentLine.indexOf(',') + 1, currentLine.length());
+                    String description = currentLine.substring(currentLine.indexOf(':') + 2, currentLine.indexOf(',') - 1);
+
+                    currentLine = currentLine.substring(currentLine.indexOf(',') + 1, currentLine.length());
+                    String status = currentLine.substring(currentLine.indexOf(':') + 2, currentLine.indexOf(',') - 1);
+
+                    currentLine = currentLine.substring(currentLine.indexOf(',') + 1, currentLine.length());
+                    String createdAt = currentLine.substring(currentLine.indexOf(':') + 2, currentLine.indexOf(',') - 1);
+
+                    currentLine = currentLine.substring(currentLine.indexOf(',') + 1, currentLine.length());
+                    String updatedAt = currentLine.substring(currentLine.indexOf(':') + 2, currentLine.indexOf('}') - 1);
+
+                    taskList.add(new Task(id, description, status, createdAt, updatedAt));
                 }
             }
-
-
-
             scanner.close();
         } catch (Exception e) {
             e.printStackTrace();
@@ -100,7 +102,8 @@ public class FileHandler {
     }
 
     public void list() {
-
+        for(Task actualTask : taskList)
+            System.out.println(actualTask.toString());
     }
 
     public int newID() {
