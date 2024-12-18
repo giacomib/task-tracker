@@ -28,23 +28,7 @@ public class Task {
     Task(int id, String description, String status, String createdAt, String updatedAt){
         this.id = id;
         this.description = description;
-
-        switch (status) {
-            case "todo":
-                this.status = statusEnum.TO_DO;
-                break;
-            case "in-progress":
-                this.status = statusEnum.IN_PROGRESS;
-                break;
-            case "done":
-                this.status = statusEnum.DONE;
-                break;
-        
-            default:
-                System.err.println("errore: wrong status format");
-                break;
-        }
-
+        this.status = fromStringToStatus(status);
         this.createdAt = LocalDateTime.parse(createdAt);
         this.updatedAt = LocalDateTime.parse(updatedAt);
     }
@@ -63,12 +47,47 @@ public class Task {
         this.updatedAt = LocalDateTime.now(ZoneId.of("Europe/Rome"));
     }
 
-    public statusEnum getStatus() {
-        return this.status;
+    public String getStatus() {
+        return fromStatusToString(this.status);
     }
 
-    public void setStatus(statusEnum status) {
-        this.status = status;
+    private String fromStatusToString(statusEnum status) {
+        String result;
+        switch (status) {
+            case TO_DO:
+                result = "todo";
+                break;
+            case IN_PROGRESS:
+                result = "in-progress";
+                break;
+            case DONE:
+                result = "done";
+                break;
+        
+            default:
+                result = "";
+                System.err.println("errore while converting from status to string");
+                break;
+        }
+        return result;
+    }
+
+    private statusEnum fromStringToStatus(String statusString) {
+        switch (statusString) {
+            case "todo":
+                return statusEnum.TO_DO;
+            case "in-progress":
+                return statusEnum.IN_PROGRESS;
+            case "done":
+                return statusEnum.DONE;
+            default:
+                System.err.println("errorwhile convertin from String to status");
+                return statusEnum.TO_DO;
+        }
+    }
+
+    public void setStatus(String status) {
+        this.status = fromStringToStatus(status);
         this.updatedAt = LocalDateTime.now(ZoneId.of("Europe/Rome"));
     }
 
@@ -84,8 +103,18 @@ public class Task {
     public String toString() {
         return "ID: " + this.id.toString() + " " +
                 "decription: " + this.description.toString() + " " +
-                "status: " + this.status.toString() + " " +
+                "status: " + fromStatusToString(this.status) + " " +
                 "created at: " + this.createdAt().toString() + " " +
                 "updated at: " + this.updatedAt().toString();
+    }
+
+    public String toWriteFile() {
+        return "        {" +
+                "\"ID\"" + ':' + this.id + ", " +
+                "\"description\"" + ':' + '"' + this.description + '"' + ", " +
+                "\"status\"" + ':' + '"' + fromStatusToString(this.status) + '"' + ", " +
+                "\"createdAt\"" + ':' + '"' + this.createdAt() + '"' + ", " +
+                "\"updatedAt\"" + ':' + '"' + this.updatedAt() + '"'
+                + '}';
     }
 }

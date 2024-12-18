@@ -13,26 +13,26 @@ public class FileHandler {
     public FileHandler(String filePath) {
         myFile = new File(filePath);
         taskList = new ArrayList<Task>();
-        // createFile();
-        // setupFile();
+        if(!myFile.exists()) {
+            createFile();
+            setupFile();
+        }
         importFileData();
     }
     
     private void createFile() {
-        if(!myFile.exists()) {
-            try {
-                myFile.createNewFile();
-            } catch (Exception e) {
-                System.out.println("error while creating the file");
-                e.printStackTrace();
-            }
+        try {
+            myFile.createNewFile();
+        } catch (Exception e) {
+            System.out.println("error while creating the file");
+            e.printStackTrace();
         }
     }
 
     private void setupFile() {
         try {
             FileWriter fileWriter = new FileWriter(myFile);
-            fileWriter.write('[' + "\n" + ']');
+            fileWriter.write('{' + "\n" + "    \"tasks\":[" + "\n" + "    ]" + "\n" + '}');
             fileWriter.close();
         } catch (Exception e) {
             System.out.println("error occured during file writing");
@@ -80,18 +80,52 @@ public class FileHandler {
         }
     }
 
-    public boolean addTask(String description) {
-        Task newTask = new Task(newID(), description);
+    public void list() {
+        for(Task actualTask : taskList)
+            System.out.println(actualTask.toString());
+    }
+
+    public void listToDo() {
+        for(Task actualTask : taskList)
+            if(actualTask.getStatus() == "todo")
+            System.out.println(actualTask.toString());
+    }
+
+    public void listInProgress() {
+        for(Task actualTask : taskList)
+            if(actualTask.getStatus() == "in-progress")
+            System.out.println(actualTask.toString());
+    }
+
+    public void listDone() {
+        for(Task actualTask : taskList)
+            if(actualTask.getStatus() == "done")
+            System.out.println(actualTask.toString());
+    }
+
+    private int newID() {
+        int max = 0;
+        for(Task actualTask : taskList) {
+            if(actualTask.getid() > max)
+                max = actualTask.getid();
+        }
+        return max + 1;
+    }
+
+    private boolean updateFile() {
+
         try {
             FileWriter fileWriter = new FileWriter(myFile);
-            fileWriter.write('{' +
-                            "\"ID\"" + ':' + '"' + newID() + '"' + ", " +
-                            "\"description\"" + ':' + '"' + description + '"' + ", " +
-                            "\"status\"" + ':' + "\"to-do\"" + ", " +
-                            "\"createdAt\"" + ':' + '"' + LocalDateTime.now(ZoneId.of("Europe/Rome")) + '"' + ", " +
-                            "\"updatedAt\"" + ':' + '"' + LocalDateTime.now(ZoneId.of("Europe/Rome")) + '"'
-                            + '}' + "\n");
-            System.out.println("new task will be added with id: " + newID());
+            fileWriter.write('{' + "\n" + "    \"tasks\":[" + "\n");
+
+            for(int i = 0; i < taskList.size(); i++) {
+                if(i == taskList.size() - 1)
+                    fileWriter.write(taskList.get(i).toWriteFile() + "\n");
+                else
+                    fileWriter.write(taskList.get(i).toWriteFile() + ",\n");
+            }
+
+            fileWriter.write("    ]" + "\n" + '}');
             fileWriter.close();
             return true;
         } catch (Exception e) {
@@ -101,27 +135,9 @@ public class FileHandler {
         }
     }
 
-    public void list() {
-        for(Task actualTask : taskList)
-            System.out.println(actualTask.toString());
-    }
-
-    public int newID() {
-        try {
-            //int currentID;
-            Scanner scanner = new Scanner(myFile);
-            // System.out.println("testing nextLine: " + scanner.hasNextLine());
-            while (scanner.hasNextLine()) {
-                String data = scanner.nextLine();
-                //System.out.println("testing nextLine");
-                System.out.println(data);
-            }
-            scanner.close();
-            return 1;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return -1;
-        }
+    public boolean addTask(String description) {
+        taskList.add(new Task(newID(), description));
+        return updateFile();
     }
 
 }

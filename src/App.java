@@ -21,10 +21,13 @@ public class App {
                 fileHandler.list();
                 break;
             case "list-done":
+                fileHandler.listDone();
                 break;
             case "list-todo":
+                fileHandler.listToDo();
                 break;
             case "list-in-progress":
+                fileHandler.listInProgress();
                 break;
             default:
                 System.out.println("operazione non valida");
