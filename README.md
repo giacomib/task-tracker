@@ -5,6 +5,11 @@ A project to track and manage your tasks, implements a simple command line inter
 https://roadmap.sh/projects/task-tracker
 
 # Documentation
+
+## Assumptions
+
+## How to run the app
+
 ## JSON file structure
 ### Base structure
 The app will create a JSON file named *taskList.json* if it does not already exist, otherwise the app will open the existing file named *taskList.json*; if you want to create an empty file, be sure to name it as *taskList.json* and that the structure respect the following schema:
@@ -30,17 +35,25 @@ note that, if the task that you are manually adding isn't the last one in the fi
 ```
 ## Tests made
 #### add
-- add task when there is no JSON file
-- add task when there is a JSON file (not containing any tasks, but already structured as documentation say)
-- add task when there is a JSON file and there are already tasks in the JSON file
+- [x] add task when there is no JSON file
+- [x] add task when there is a JSON file (not containing any tasks, but already structured as documentation say)
+- [x] add task when there is a JSON file and there is one task in the JSON file
+- [x] add task when there is a JSON file and there are more tasks in the JSON file
 #### update
 #### delete
 #### mark in progress
 #### mark done
 #### list
-- list all task when there is not a task in the file
-- list all task when there is one task in the file
-- list all task when there are more than one tasks in the file
+- [x] list all task when there is not the file
+- [x] list all task when there is not a task in the file
+- [x] list all task when there is one task in the file
+- [x] list all task when there are more than one tasks in the file
 #### list to-do
+- [] list all task with status "to-do" when there is not the file
+- [] list all task with status "to-do" when there is not a task in the file
+- [] list all task with status "to-do" when there is one task in the file and the status isn't "in-progress"
+- [] list all task with status "to-do" when there is one task in the file and the status isn't "done"
+- [] list all task with status "to-do" when there is one task in the file and the status isn't "to-do"
+- [] list all task with status "to-do" when there are more than one tasks in the file
 #### list in-progress
 #### list done
