@@ -10,6 +10,9 @@ https://roadmap.sh/projects/task-tracker
 
 ## How to run the app
 
+## Other notes
+- Even if the user type in a wrong operation, the basic file with the basic file structure will be created.
+
 ## JSON file structure
 ### Base structure
 The app will create a JSON file named *taskList.json* if it does not already exist, otherwise the app will open the existing file named *taskList.json*; if you want to create an empty file, be sure to name it as *taskList.json* and that the structure respect the following schema:
@@ -49,23 +52,24 @@ note that, if the task that you are manually adding isn't the last one in the fi
 - [x] list all task when there is one task in the file
 - [x] list all task when there are more than one tasks in the file
 #### list to-do
-- [ ] list all task with status "to-do" when there is not the file
-- [ ] list all task with status "to-do" when there is not a task in the file
-- [ ] list all task with status "to-do" when there is one task in the file and the status is "in-progress"
-- [ ] list all task with status "to-do" when there is one task in the file and the status is "done"
-- [ ] list all task with status "to-do" when there is one task in the file and the status is "to-do"
-- [ ] list all task with status "to-do" when there are more than one tasks in the file
+- [x] list all task with status "to-do" when there is not the file
+- [x] list all task with status "to-do" when there is not a task in the file
+- [x] list all task with status "to-do" when there is one task in the file and the status is "in-progress"
+- [x] list all task with status "to-do" when there is one task in the file and the status is "done"
+- [x] list all task with status "to-do" when there is one task in the file and the status is "to-do"
+- [x] list all task with status "to-do" when there are more than one tasks in the file, at least one of them has the statu attibute setted to "to-do"
 #### list in-progress
-- [ ] list all task with status "in-progress" when there is not the file
-- [ ] list all task with status "in-progress" when there is not a task in the file
-- [ ] list all task with status "in-progress" when there is one task in the file and the status is "in-progress"
-- [ ] list all task with status "in-progress" when there is one task in the file and the status is "done"
-- [ ] list all task with status "in-progress" when there is one task in the file and the status is "to-do"
-- [ ] list all task with status "in-progress" when there are more than one tasks in the file
+- [x] list all task with status "in-progress" when there is not the file
+- [x] list all task with status "in-progress" when there is not a task in the file
+- [x] list all task with status "in-progress" when there is one task in the file and the status is "in-progress"
+- [x] list all task with status "in-progress" when there is one task in the file and the status is "done"
+- [x] list all task with status "in-progress" when there is one task in the file and the status is "to-do"
+- [x] list all task with status "in-progress" when there are more than one tasks in the file, at least one of them has the statu attibute setted to "in-progress"
 #### list done
-- [ ] list all task with status "done" when there is not the file
-- [ ] list all task with status "done" when there is not a task in the file
-- [ ] list all task with status "done" when there is one task in the file and the status is "in-progress"
-- [ ] list all task with status "done" when there is one task in the file and the status is "done"
-- [ ] list all task with status "done" when there is one task in the file and the status is "to-do"
-- [ ] list all task with status "done" when there are more than one tasks in the file
+- [x] list all task with status "done" when there is not the file
+- [x] list all task with status "done" when there is not a task in the file
+- [x] list all task with status "done" when there is one task in the file and the status is "in-progress"
+- [x] list all task with status "done" when there is one task in the file and the status is "done"
+- [x] list all task with status "done" when there is one task in the file and the status is "to-do"
+- [x] list all task with status "done" when there are more than one tasks in the file, at least one of them has the statu attibute setted to "done"
+#### Other possibilities
