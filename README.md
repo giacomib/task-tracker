@@ -51,9 +51,21 @@ note that, if the task that you are manually adding isn't the last one in the fi
 #### list to-do
 - [ ] list all task with status "to-do" when there is not the file
 - [ ] list all task with status "to-do" when there is not a task in the file
-- [ ] list all task with status "to-do" when there is one task in the file and the status isn't "in-progress"
-- [ ] list all task with status "to-do" when there is one task in the file and the status isn't "done"
-- [ ] list all task with status "to-do" when there is one task in the file and the status isn't "to-do"
+- [ ] list all task with status "to-do" when there is one task in the file and the status is "in-progress"
+- [ ] list all task with status "to-do" when there is one task in the file and the status is "done"
+- [ ] list all task with status "to-do" when there is one task in the file and the status is "to-do"
 - [ ] list all task with status "to-do" when there are more than one tasks in the file
 #### list in-progress
+- [ ] list all task with status "in-progress" when there is not the file
+- [ ] list all task with status "in-progress" when there is not a task in the file
+- [ ] list all task with status "in-progress" when there is one task in the file and the status is "in-progress"
+- [ ] list all task with status "in-progress" when there is one task in the file and the status is "done"
+- [ ] list all task with status "in-progress" when there is one task in the file and the status is "to-do"
+- [ ] list all task with status "in-progress" when there are more than one tasks in the file
 #### list done
+- [ ] list all task with status "done" when there is not the file
+- [ ] list all task with status "done" when there is not a task in the file
+- [ ] list all task with status "done" when there is one task in the file and the status is "in-progress"
+- [ ] list all task with status "done" when there is one task in the file and the status is "done"
+- [ ] list all task with status "done" when there is one task in the file and the status is "to-do"
+- [ ] list all task with status "done" when there are more than one tasks in the file
