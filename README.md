@@ -7,11 +7,11 @@ https://roadmap.sh/projects/task-tracker
 # Documentation
 
 ## Assumptions
-
+- todo
 ## How to run the app
-
+- todo
 ## Other notes
-- Even if the user type in a wrong operation, the basic file with the basic file structure will be created.
+- Even if the user type in a wrong operation, the basic file with the basic file structure will be correctly created, the just created file will be empty.
 
 ## JSON file structure
 ### Base structure
@@ -57,19 +57,19 @@ note that, if the task that you are manually adding isn't the last one in the fi
 - [x] list all task with status "to-do" when there is one task in the file and the status is "in-progress"
 - [x] list all task with status "to-do" when there is one task in the file and the status is "done"
 - [x] list all task with status "to-do" when there is one task in the file and the status is "to-do"
-- [x] list all task with status "to-do" when there are more than one tasks in the file, at least one of them has the statu attibute setted to "to-do"
+- [x] list all task with status "to-do" when there are more than one tasks in the file, at least one of them has the status attibute setted to "to-do"
 #### list in-progress
 - [x] list all task with status "in-progress" when there is not the file
 - [x] list all task with status "in-progress" when there is not a task in the file
 - [x] list all task with status "in-progress" when there is one task in the file and the status is "in-progress"
 - [x] list all task with status "in-progress" when there is one task in the file and the status is "done"
 - [x] list all task with status "in-progress" when there is one task in the file and the status is "to-do"
-- [x] list all task with status "in-progress" when there are more than one tasks in the file, at least one of them has the statu attibute setted to "in-progress"
+- [x] list all task with status "in-progress" when there are more than one tasks in the file, at least one of them has the status attibute setted to "in-progress"
 #### list done
 - [x] list all task with status "done" when there is not the file
 - [x] list all task with status "done" when there is not a task in the file
 - [x] list all task with status "done" when there is one task in the file and the status is "in-progress"
 - [x] list all task with status "done" when there is one task in the file and the status is "done"
 - [x] list all task with status "done" when there is one task in the file and the status is "to-do"
-- [x] list all task with status "done" when there are more than one tasks in the file, at least one of them has the statu attibute setted to "done"
-#### Other possibilities
+- [x] list all task with status "done" when there are more than one tasks in the file, at least one of them has the status attibute setted to "done"
+#### Other test done
