@@ -138,4 +138,50 @@ public class FileHandler {
         return updateFile();
     }
 
+    public boolean updateTask(int id, String newDescription) {
+        // since the array list is already sorted,
+        // might implement this through binary search
+        for(Task actualTask : taskList) {
+            if(actualTask.getid() == id) {
+                actualTask.setDescription(newDescription);
+                return updateFile();
+            }
+        }
+        System.err.println("no task found with given id " + id);
+        return false;
+    }
+
+    public boolean deleteTask(int id) {
+        for (Task task : taskList) {
+            if(task.getid() == id) {
+                taskList.remove(task);
+                return updateFile();
+            }
+        }
+        System.err.println("no task found with given id " + id);
+        return false;
+    }
+
+    public boolean markInProgress(int id) {
+        for (Task task : taskList) {
+            if(task.getid() == id) {
+                task.setStatus("in-progress");
+                return updateFile();
+            }
+        }
+        System.err.println("no task found with given id " + id);
+        return false;
+    }
+
+    public boolean markDone(int id) {
+        for (Task task : taskList) {
+            if(task.getid() == id) {
+                task.setStatus("done");
+                return updateFile();
+            }
+        }
+        System.err.println("no task found with given id " + id);
+        return false;
+    }
+
 }

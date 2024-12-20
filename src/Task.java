@@ -81,7 +81,7 @@ public class Task {
             case "done":
                 return statusEnum.DONE;
             default:
-                System.err.println("errorwhile convertin from String to status");
+                System.err.println("error while converting from String to status");
                 return statusEnum.TO_DO;
         }
     }

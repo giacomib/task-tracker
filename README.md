@@ -9,9 +9,20 @@ https://roadmap.sh/projects/task-tracker
 ## Assumptions
 - todo
 ## How to run the app
-- todo
+- to run the app from the command line, move to the task-tracker/src folder, then run the command `javac.App.java` to compile the code, then, to run the app, you have to run the command `java App ...` where the `...` stand for the command you want the app to do, example, i want to add a task with description "my little house", i will run the following command: `java App add "my little house"`
+### Commands
+- To add a task: `add "description of the new task"`
+- To update a task: `update task_id "description of the updated task"`
+- To delete a task: `delete task_id`
+- To mark a task as in progress `mark-in-progress task_id`
+- To mark a task as done `mark-done task_id`
+- To list all tasks `list`
+- To list all tasks that are to-do: `list-todo`
+- To list all tasks that are in progress: `list-in-progress`
+- To list all tasks that are done: `list-done`
 ## Other notes
-- Even if the user type in a wrong operation, the basic file with the basic file structure will be correctly created, the just created file will be empty.
+- Even if the user type in a wrong operation, the basic file with an empty file structure will be correctly created.
+- The JSON file storing all tasks will be created in the src directory if you run the program with the command line; if you run the program with visual studio code, the JSON file will be created in the root folder of the project(should be named *task-tracker*).
 
 ## JSON file structure
 ### Base structure
@@ -43,9 +54,29 @@ note that, if the task that you are manually adding isn't the last one in the fi
 - [x] add task when there is a JSON file and there is one task in the JSON file
 - [x] add task when there is a JSON file and there are more tasks in the JSON file
 #### update
+- [x] update a task when there is not the file
+- [x] update a task when there is not a task in the file
+- [x] update a task when there is one task in the file and the id doesn't match
+- [x] update a task when there is one task in the file and the id match
+- [x] update a task when there is more than one task in the file and the id match
 #### delete
+- [x] delete a task when there is not the file
+- [x] delete a task when there is not a task in the file
+- [x] delete a task when there is one task in the file and the id doesn't match
+- [x] delete a task when there is one task in the file and the id match
+- [x] delete a task when there is more than one task in the file and the id match
 #### mark in progress
+- [x] mark in progress a task when there is not the file
+- [x] mark in progress a task when there is not a task in the file
+- [x] mark in progress a task when there is one task in the file and the id doesn't match
+- [x] mark in progress a task when there is one task in the file and the id match
+- [x] mark in progress a task when there is more than one task in the file and the id match
 #### mark done
+- [x] mark as done a task when there is not the file
+- [x] mark as done a task when there is not a task in the file
+- [x] mark as done a task when there is one task in the file and the id doesn't match
+- [x] mark as done a task when there is one task in the file and the id match
+- [x] mark as done a task when there is more than one task in the file and the id match
 #### list
 - [x] list all task when there is not the file
 - [x] list all task when there is not a task in the file
@@ -72,4 +103,4 @@ note that, if the task that you are manually adding isn't the last one in the fi
 - [x] list all task with status "done" when there is one task in the file and the status is "done"
 - [x] list all task with status "done" when there is one task in the file and the status is "to-do"
 - [x] list all task with status "done" when there are more than one tasks in the file, at least one of them has the status attibute setted to "done"
-#### Other test done
+#### Other tests done
