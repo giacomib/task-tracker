@@ -6,10 +6,8 @@ https://roadmap.sh/projects/task-tracker
 
 # Documentation
 
-## Assumptions
-- todo
 ## How to run the app
-- to run the app from the command line, move to the task-tracker/src folder, then run the command `javac.App.java` to compile the code, then, to run the app, you have to run the command `java App ...` where the `...` stand for the command you want the app to do, example, i want to add a task with description "my little house", i will run the following command: `java App add "my little house"`
+- to run the app from the command line, move to the task-tracker/src folder, then run the command `javac.App.java` to compile the code, then, to run the app, you have to run the command `java App ...` where the `...` stand for the command you want the app to do, example: i want to add a task with description "my little house", i will run the following command: `java App add "my little house"`
 ### Commands
 - To add a task: `add "description of the new task"`
 - To update a task: `update task_id "description of the updated task"`
@@ -104,3 +102,4 @@ note that, if the task that you are manually adding isn't the last one in the fi
 - [x] list all task with status "done" when there is one task in the file and the status is "to-do"
 - [x] list all task with status "done" when there are more than one tasks in the file, at least one of them has the status attibute setted to "done"
 #### Other tests done
+- [x] try to do all operations without giving the right parameters
