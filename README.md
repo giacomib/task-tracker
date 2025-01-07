@@ -7,7 +7,7 @@ https://roadmap.sh/projects/task-tracker
 # Documentation
 
 ## How to run the app
-- to run the app from the command line, move to the task-tracker/src folder, then run the command `javac.App.java` to compile the code, then, to run the app, you have to run the command `java App ...` where the `...` stand for the command you want the app to do, example: i want to add a task with description "my little house", i will run the following command: `java App add "my little house"`
+- to run the app from the command line, move to the task-tracker/src folder, then run the command `javac App.java` to compile the code, then, to run the app, you have to run the command `java App ...` where the `...` stand for the command you want the app to do, example: i want to add a task with description "my little house", i will run the following command: `java App add "my little house"`
 ### Commands
 - To add a task: `add "description of the new task"`
 - To update a task: `update task_id "description of the updated task"`
